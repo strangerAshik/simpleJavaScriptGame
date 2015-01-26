@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+		<title>Tic Toc Using javaScript</title>
+		<link rel="stylesheet" href="style.css">	
+		<script>
+		var counter=0;
+		function dow(id){
+		counter++;				
+		if(counter%2!=0 && counter<=9){
+				document.getElementById(id).innerHTML="O";	
+				document.getElementById("playerNo").innerHTML="2";	
+				whoWin(counter);
+			}
+		else if(counter%2==0 && counter<=9){
+				document.getElementById(id).innerHTML="X";
+				document.getElementById("playerNo").innerHTML="1";	
+				whoWin(counter);
+			}
+		}
+		//for reset or reload page
+		function reloadPage()
+		  {
+		  location.reload();
+		  }
+		//who win function
+		function whoWin( counter){
+			var r0c0=document.getElementById("r0c0").innerHTML;
+			var r0c1=document.getElementById("r0c1").innerHTML;
+			var r0c2=document.getElementById("r0c2").innerHTML;
+			
+			var r1c0=document.getElementById("r1c0").innerHTML;
+			var r1c1=document.getElementById("r1c1").innerHTML;
+			var r1c2=document.getElementById("r1c2").innerHTML;
+			
+			var r2c0=document.getElementById("r2c0").innerHTML;
+			var r2c1=document.getElementById("r2c1").innerHTML;
+			var r2c2=document.getElementById("r2c2").innerHTML;
+			
+				//document.write(roc2);
+				var a="1";
+				if(
+					(r0c0==="O" && r0c1==="O" && r0c2==="O")||
+					(r1c0==="O" && r1c1==="O" && r1c2==="O")||
+					(r2c0==="O" && r2c1==="O" && r2c2==="O")||
+					(r0c0==="O" && r1c0==="O" && r2c0==="O")||
+					(r0c1==="O" && r1c1==="O" && r2c1==="O")||
+					(r0c2==="O" && r1c2==="O" && r2c2==="O")||
+					(r0c0==="O" && r1c1==="O" && r2c2==="O")||
+					(r0c2==="O" && r1c1==="O" && r2c0==="O")				
+				){
+				alert("player 1 is win!!\n Play Again...");
+				 location.reload();
+				}
+				else if(
+					(r0c0==="X" && r0c1==="X" && r0c2==="X")||
+					(r1c0==="X" && r1c1==="X" && r1c2==="X")||
+					(r2c0==="X" && r2c1==="X" && r2c2==="X")||
+					(r0c0==="X" && r1c0==="X" && r2c0==="X")||
+					(r0c1==="X" && r1c1==="X" && r2c1==="X")||
+					(r0c2==="X" && r1c2==="X" && r2c2==="X")||
+					(r0c0==="X" && r1c1==="X" && r2c2==="X")||
+					(r0c2==="X" && r1c1==="X" && r2c0==="X")	
+				
+				){
+				alert("player 2 is win!!\n Play Again...");
+				 location.reload();
+				}
+				else if(counter==9){
+					alert("Game Draw!!!\n Play Again...")
+					  location.reload();
+					}
+			}
+		
+		</script>
+	</head>
+	<body>
+		<div class="main-wrapper fix">
+			<div class="DeveloperDetails fix">
+				<pre>Game Name     :<span>Tic Toc</span></pre>
+				<pre>Version       :<span>1.0</span></pre>
+				<pre>Developer Name:<span>Md.Ashikuzzaman</span></pre>
+			</div>
+			<div style="clear:both;"></div>
+			<div class="tic-toc-container fix">
+			<p>Now It's Time For Player :<span id="playerNo">1</span></p>
+				<div class="tic-toc-wrapper fix">
+					<div class="tic-toc-single-row">
+						<div class="tic-toc-single-column" id="r0c0" onclick="dow(this.id)"></div>
+						<div class="tic-toc-single-column" id="r0c1" onclick="dow(this.id)"></div>
+						<div class="tic-toc-single-column" id="r0c2" onclick="dow(this.id)"></div>
+					</div>
+					<div class="tic-toc-single-row clear">
+						<div class="tic-toc-single-column" id="r1c0" onclick="dow(this.id)"></div>
+						<div class="tic-toc-single-column" id="r1c1" onclick="dow(this.id)"></div>
+						<div class="tic-toc-single-column" id="r1c2" onclick="dow(this.id)"></div>
+					</div>
+					<div class="tic-toc-single-row clear">
+						<div class="tic-toc-single-column" id="r2c0" onclick="dow(this.id)"></div>
+						<div class="tic-toc-single-column" id="r2c1" onclick="dow(this.id)"></div>
+						<div class="tic-toc-single-column" id="r2c2" onclick="dow(this.id)"></div>
+					</div>
+				</div>
+				<input type="submit" class="reload fix" value="Reset To play Again" onclick="reloadPage()">
+			</div>
+			
+		</div>
+	
+</body></html>
